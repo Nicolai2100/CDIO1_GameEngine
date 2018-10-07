@@ -9,11 +9,6 @@ public class Main {
 
         gameEngine.playGame();
 
-        String r = "r";
-        Scanner scan = new Scanner(System.in);
-        String key = scan.next();
-
-
 
     }
 }

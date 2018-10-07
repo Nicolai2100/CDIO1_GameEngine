@@ -27,16 +27,26 @@ public class GameEngine {
 
         //Start the main game
         do {
+
+            message.player1sTurn();
             String key1 = scan.nextLine();
-            System.out.println(message.player1sTurn());
-            System.out.println(player1.playerRoll());
+            player1.playerRoll();
+            System.out.println(die1.getFaceValue());
+            System.out.println(diceCup1.getDie1());
+            System.out.println(die2.getFaceValue());
+            System.out.println(diceCup1.getDie2());
 
             if (player1.won)
                 break;
 //commit
+            message.player2sTurn();
             key1 = scan.nextLine();
-            System.out.println(message.player2sTurn());
-            System.out.println(player2.playerRoll());
+
+            player2.playerRoll();
+            System.out.println(die1.getFaceValue());
+            System.out.println(diceCup1.die1.getFaceValue());
+            System.out.println(die2.getFaceValue());
+            System.out.println(diceCup1.die2.getFaceValue());
             if (player2.won)
                 break;
 
@@ -45,7 +55,8 @@ public class GameEngine {
 
         while(!player1.won || !player2.won);
 
-        System.out.println(message.playerHasWon());
+        message.playerHasWon();
+
     }
 
 }

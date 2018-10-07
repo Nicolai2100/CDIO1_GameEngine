@@ -11,15 +11,23 @@ public DiceCup(Dice dice1, Dice dice2 ){
 
     public boolean ens(){
     boolean ensTerninger = false;
-    if (die1.faceValue == die2.faceValue)
+    if (die1.getFaceValue() == die2.getFaceValue())
         ensTerninger = true;
     return true;
     }
 
     public int rollSum(){
-    die1.roll();
-    die2.roll();
-    sum = die1.faceValue + die2.faceValue;
-    return sum;
+//    die1.setFaceValue();
+  //  die2.setFaceValue(die2.roll());
+    //sum = die1.getFaceValue() + die2.getFaceValue();
+    return sum = die1.roll() + die2.roll();
+    }
+
+    public int getDie1() {
+        return die1.getFaceValue();
+    }
+
+    public int getDie2() {
+        return die2.getFaceValue();
     }
 }

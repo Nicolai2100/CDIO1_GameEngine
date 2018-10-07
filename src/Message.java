@@ -3,6 +3,9 @@ public class Message {
     String startGameS;
     String playersTurnS;
     String playerHasWonS;
+    String playerHaveAnExtraTurnString;
+    String playerRollSumString;
+
     Player player1;
     Player player2;
     Player theVictor;
@@ -12,33 +15,41 @@ public class Message {
         this.player2 = player2;
     }
 
-    public String startGame(){
+    public void startGame(){
 
         startGameS = "Welcome to the game! Please enter the name of player 1.";
+        System.out.println(startGameS);
 
-        return startGameS;
     }
 
-    public String player1sTurn(){
+    public void player1sTurn(){
 
         playersTurnS = "Its " + player1.name + "'s turn! Pres enter to roll!";
-
-        return playersTurnS;
+        System.out.println(playersTurnS);
     }
-    public String player2sTurn(){
+    public void player2sTurn(){
 
         playersTurnS = "Its " + player2.name + "'s turn! Pres enter to roll!";
-
-        return playersTurnS;
+        System.out.println(playersTurnS);
     }
-
-    public String playerHasWon(){
+    public void playerRoll(){
+       // playerRollSumString = name + " har slået " + playerRollSum + " Din score er nu " + playerSumSoFar;
+        System.out.println(playerRollSumString);
+    }
+    public void playerHasWon(){
         if (player1.won)
             theVictor = player1;
         else
             theVictor = player2;
 
         playerHasWonS = "Tillykke " + theVictor.name + "! You are victorius!";
-        return playerHasWonS;
+        System.out.println(playerHasWonS);
+    }
+
+    public void playerHaveAnExtraTurn(){
+
+        playerHaveAnExtraTurnString = "You got two of equal number! Roll again!";
+
+        System.out.println(playerHaveAnExtraTurnString);
     }
 }
