@@ -29,14 +29,12 @@ public class GameEngine {
         do {
 
             message.player1sTurn();
-            String key1 = scan.nextLine();
             player1.playerRoll();
 
             if (player1.won)
                 break;
 //commit
             message.player2sTurn();
-            key1 = scan.nextLine();
             player2.playerRoll();
 
             if (player2.won)
