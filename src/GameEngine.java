@@ -31,22 +31,14 @@ public class GameEngine {
             message.player1sTurn();
             String key1 = scan.nextLine();
             player1.playerRoll();
-            System.out.println(die1.getFaceValue());
-            System.out.println(diceCup1.getDie1());
-            System.out.println(die2.getFaceValue());
-            System.out.println(diceCup1.getDie2());
 
             if (player1.won)
                 break;
 //commit
             message.player2sTurn();
             key1 = scan.nextLine();
-
             player2.playerRoll();
-            System.out.println(die1.getFaceValue());
-            System.out.println(diceCup1.die1.getFaceValue());
-            System.out.println(die2.getFaceValue());
-            System.out.println(diceCup1.die2.getFaceValue());
+
             if (player2.won)
                 break;
 

@@ -24,6 +24,9 @@ public class Player {
 
     public void playerRoll(){
             diceCup.rollSum();
+        System.out.println("Terning 1 har slået: " + diceCup.die1.getFaceValue());
+        System.out.println("Terning 2 har slået: " + diceCup.die2.getFaceValue());
+
         if (die1.getFaceValue() == 1 && die2.getFaceValue() == 1){
             playerLosePoints();
             playerLosePointsString = name + " rolled two 1's and have lost all points! Current score: "+ playerSumSoFar;
@@ -31,7 +34,11 @@ public class Player {
         }
 
         if (die1.getFaceValue() != 1 && die1.getFaceValue() == die2.getFaceValue()) {
+
+            playerRollSum = diceCup.sum;
+            playerSumSoFar = playerSumSoFar + playerRollSum;
             playerGotTwoOfEqualValue();
+
         } else{
             playerRollSum = diceCup.sum;
             playerSumSoFar = playerSumSoFar + playerRollSum;
