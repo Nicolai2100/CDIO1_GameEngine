@@ -16,10 +16,12 @@ public class Message {
     }
 
     public void startGame(){
-
         startGameS = "Welcome to the game! Please enter the name of player 1.";
         System.out.println(startGameS);
-
+    }
+    public void startGame2(){
+        startGameS = "Please enter the name of player 2.";
+        System.out.println(startGameS);
     }
 
     public void player1sTurn(){
