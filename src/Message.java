@@ -44,7 +44,7 @@ public class Message {
         else
             theVictor = player2;
 
-        playerHasWonS = "Tillykke " + theVictor.name + "! You are victorius!";
+        playerHasWonS = "Congratulations " + theVictor.name + "! You are victorius!";
         System.out.println(playerHasWonS);
     }
 

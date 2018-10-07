@@ -37,6 +37,7 @@ public class Player {
 
         if (diceCup.die1.getFaceValue() == 1 && diceCup.die2.getFaceValue() == 1){
             playerLosePoints();
+            playerGotTwoOfEqualValue();
         }
 
         else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
@@ -67,18 +68,17 @@ public class Player {
         && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
             won = true;
             System.out.println("You win because you have 40 points and got a double!");
-
         }
     }
     //to enere og spiller mister point
     public void playerLosePoints() {
         playerSumSoFar = 0;
-                    }
+        }
 
     public void playerGotTwoOfEqualValue(){
-        if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue())
+        if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue()) {
             message.playerHaveAnExtraTurnButLosePoints();
-
+        }
         else if (diceCup.die1.getFaceValue() != 1 &&
                 diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue());
         {
@@ -89,7 +89,7 @@ public class Player {
             else{
             won = true;
             System.out.println("You win because you have 40 points and got a double!");
-        }
+            }
         }
     }
 
@@ -103,16 +103,4 @@ public class Player {
 
             return doubleSixBool;
     }
-
-
-
-
-    /*Spilleren mister alle sine point hvis spilleren slår to 1'ere.
-2. Spilleren får en ekstra tur hvis spilleren slår to ens.
-3. Spilleren kan vinde spillet ved at slå to 6'ere, hvis spilleren også i forrige kast slog to 6'ere
-uanset om det er på ekstrakast eller i forrige tur.
-4. Spilleren skal slå to ens for at vinde spillet, efter at man har opnået 40 point.
-Vi*/
-
-
 }
