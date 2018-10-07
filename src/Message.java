@@ -38,7 +38,7 @@ public class Message {
         else
             theVictor = player2;
 
-        playerHasWonS = "Tillykke " + theVictor + "! You are victorius!";
+        playerHasWonS = "Tillykke " + theVictor.name + "! You are victorius!";
         return playerHasWonS;
     }
 }
