@@ -37,16 +37,16 @@ public class Player {
 
         if (diceCup.die1.getFaceValue() == 1 && diceCup.die2.getFaceValue() == 1){
             playerLosePoints();
-            playerLosePointsString = name + " rolled two 1's and have lost all points! Current score: "+ playerSumSoFar;
-            System.out.println(playerLosePointsString);
         }
 
-        if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
+        else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
 
             playerRollSum = diceCup.sum;
             playerSumSoFar = playerSumSoFar + playerRollSum;
+
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6)
             playerWonBydoubleSix();
+
             else
             playerGotTwoOfEqualValue();
 
@@ -63,33 +63,44 @@ public class Player {
 
     public void playerWon(){
 
-        if (playerSumSoFar == 40 || playerSumSoFar > 40 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
+        if (playerSumSoFar == 40 || playerSumSoFar > 40
+        && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
             won = true;
+            System.out.println("You win because you have 40 points and got a double!");
+
         }
     }
-
     //to enere og spiller mister point
     public void playerLosePoints() {
-
         playerSumSoFar = 0;
-        playerGotTwoOfEqualValue();
                     }
 
     public void playerGotTwoOfEqualValue(){
-        if (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue());
+        if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue())
+            message.playerHaveAnExtraTurnButLosePoints();
+
+        else if (diceCup.die1.getFaceValue() != 1 &&
+                diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue());
         {
             message.playerHaveAnExtraTurn();
             if (playerSumSoFar < 40)
             playerRoll();
 
-            else
+            else{
             won = true;
+            System.out.println("You win because you have 40 points and got a double!");
+        }
         }
     }
 
     public boolean playerWonBydoubleSix(){
             if (diceCup.rollSum() == 12 && lastRollSum == 12)
-            doubleSixBool = true;
+            {doubleSixBool = true;
+                System.out.println("You win because you got a double, double six!!!");
+            }
+            else
+            playerGotTwoOfEqualValue();
+
             return doubleSixBool;
     }
 

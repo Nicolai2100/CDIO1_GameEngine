@@ -52,4 +52,11 @@ public class Message {
 
         System.out.println(playerHaveAnExtraTurnString);
     }
+
+    public void playerHaveAnExtraTurnButLosePoints(){
+        //Hvis du læser dette så HAHAHAHA for et navn!
+        playerHaveAnExtraTurnString = "You got two 1's and lose all your point! "+ "\n" + "But you can Roll again!";
+
+        System.out.println(playerHaveAnExtraTurnString);
+    }
 }
