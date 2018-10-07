@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+//import static com.sun.tools.doclint.Entity.or;
+
+public class Main {
+    public static void main(String[] args) {
+
+        GameEngine gameEngine = new GameEngine();
+
+        gameEngine.playGame();
+
+        String r = "r";
+        Scanner scan = new Scanner(System.in);
+        String key = scan.next();
+
+
+
+    }
+}
