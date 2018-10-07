@@ -37,7 +37,8 @@ public class GameEngine {
             key1 = scan.nextLine();
             System.out.println(message.player2sTurn());
             System.out.println(player2.playerRoll());
-
+            if (player2.won)
+                break;
 
         }
         //End the game when one of the players get 40.
