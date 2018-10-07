@@ -45,7 +45,6 @@ public class GameEngine {
         while(!player1.won || !player2.won);
 
         System.out.println(message.playerHasWon());
-
     }
 
 }
