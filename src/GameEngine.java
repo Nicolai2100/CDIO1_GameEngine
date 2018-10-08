@@ -4,9 +4,9 @@ public class GameEngine {
 
     public GameEngine(){
     }
-
+    //The method from where the game runs.
     public void playGame(){
-        //Objects
+        //Objects are created
         Scanner scan = new Scanner(System.in);
         Dice die1 = new Dice();
         Dice die2 = new Dice();
@@ -14,13 +14,14 @@ public class GameEngine {
         Player player1 = new Player( 0, diceCup1);
         Player player2 = new Player( 0, diceCup1);
         Message message = new Message(player1, player2);
-
+        //Method that gives an introduction to the game. Rules, etc.
         message.startGame();
 
-        //Get player 1 name
+        //Set player 1 name
         player1.setName(scan.next());
         message.startGame2();
-        //Get player 2 name
+
+        //Set player 2 name
         player2.setName(scan.next());
 
         //Start the main game
@@ -40,6 +41,7 @@ public class GameEngine {
         //End the game when one of the players get 40 and get a double - or to double 6.
         while(!player1.getWon() || !player2.getWon());
 
+        //Give a message about who won the game
         message.playerHasWon();
     }
 }
