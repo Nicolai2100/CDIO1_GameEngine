@@ -14,6 +14,7 @@ public class Dice {
     }
 
     public int getFaceValue() {return faceValue; }
+
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
     }

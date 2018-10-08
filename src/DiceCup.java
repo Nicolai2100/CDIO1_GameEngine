@@ -17,20 +17,19 @@ public class DiceCup {
         return sum = faceValue1 + faceValue2;
     }
 
-    public int getDie1() {
-        return die1.getFaceValue();
+    public int getFaceValueDie1() {
+        return faceValue1;
     }
 
-    public int getDie2() {
-        return die2.getFaceValue();
+    public int getFaceValueDie2() {
+        return faceValue2;
     }
-    public void setFaceValue1(int faceValue) {
+    public void setFaceValueDie1(int faceValue) {
         this.faceValue1 = faceValue;
     }
-    public void setFaceValue2(int faceValue) {
-        this.faceValue1 = faceValue;
+    public void setFaceValueDie2(int faceValue) {
+        this.faceValue2 = faceValue;
     }
-
 
     public int getSum() { return sum; }
 }

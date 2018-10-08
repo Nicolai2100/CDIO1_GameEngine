@@ -65,18 +65,18 @@ public class Player {
     //Valuates whether the player have won or not.
     public void playerWon(){
         if (playerSumSoFar >= 40
-        && (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue())) {
+        && (diceCup.getFaceValueDie1() == diceCup.getFaceValueDie2())) {
             won = true;
             System.out.println("You win because you have 40 points and got a double!");
         }
     }
     //Valuates what to do if the player rolls two dice of equal value.
     public void playerGotTwoOfEqualValue(){
-        if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue()) {
+        if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             message.playerExtraTurnButLosePoints();
         }
-        else if (diceCup.die1.getFaceValue() != 1 &&
-                diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue());
+        else if (diceCup.getFaceValueDie1() != 1 &&
+                diceCup.getFaceValueDie1() == diceCup.getFaceValueDie2());
         {
             if (playerSumSoFar < 40){
                 message.playerHaveAnExtraTurn();
@@ -123,5 +123,13 @@ public class Player {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPlayerSumSoFar(int playerSumSoFar) {
+        this.playerSumSoFar = playerSumSoFar;
+    }
+
+    public int getPlayerSumSoFar() {
+        return playerSumSoFar;
     }
 }
