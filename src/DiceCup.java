@@ -15,6 +15,7 @@ public DiceCup(Dice dice1, Dice dice2 ){
         ensTerninger = true;
     return true;
     }
+    // Test under Development
 
     public int rollSum(){
 //    die1.setFaceValue();
