@@ -21,11 +21,13 @@ public class GameEngine {
         player1.decider();
 
         //Set player 1 name
+        message.startGame1();
         player1.setName(scan.next());
-        message.startGame2();
 
         //Set player 2 name
+        message.startGame2();
         player2.setName(scan.next());
+
 
         //Start the main game
         do {
