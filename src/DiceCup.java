@@ -21,7 +21,5 @@ public class DiceCup {
         return die2.getFaceValue();
     }
 
-    public int getSum() {
-        return sum;
-    }
+    public int getSum() { return sum; }
 }

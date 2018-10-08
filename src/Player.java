@@ -22,11 +22,9 @@ public class Player {
     Message message = new Message(ref1, ref2);
     Scanner scan = new Scanner(System.in);
 
-    public Player(String aName, int aPlayerSumSofar , DiceCup diceCup){
-
-        name = aName;
+    //Construktor
+    public Player(int aPlayerSumSofar , DiceCup diceCup){
         playerSumSoFar = aPlayerSumSofar;
-
     }
 
     public void playerRoll(){
@@ -101,11 +99,13 @@ public class Player {
 
             return doubleSixBool;
     }
-
     public String getName() {
         return name;
     }
     public boolean getWon(){
         return won;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }
