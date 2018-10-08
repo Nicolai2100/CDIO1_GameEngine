@@ -1,14 +1,14 @@
 public class Message {
 
-    String startGameS;
-    String playersTurnS;
-    String playerHasWonS;
-    String playerHaveAnExtraTurnString;
-    String playerRollSumString;
+    private String startGameS;
+    private String playersTurnS;
+    private String playerHasWonS;
+    private String playerHaveAnExtraTurnString;
+    private String playerRollSumString;
 
-    Player player1;
-    Player player2;
-    Player theVictor;
+    private Player player1;
+    private Player player2;
+    private Player theVictor;
 
     public Message(Player player1, Player player2){
         this.player1 = player1;
@@ -35,13 +35,13 @@ public class Message {
 
     public void player1sTurn(){
 
-        playersTurnS = "Its " + player1.name + "'s turn! Pres enter to roll!";
+        playersTurnS = "Its " + player1.getName() + "'s turn! Pres enter to roll!";
         System.out.println(playersTurnS);
     }
 
     public void player2sTurn(){
 
-        playersTurnS = "Its " + player2.name + "'s turn! Pres enter to roll!";
+        playersTurnS = "Its " + player2.getName() + "'s turn! Pres enter to roll!";
         System.out.println(playersTurnS);
     }
 
@@ -51,12 +51,12 @@ public class Message {
     }
 
     public void playerHasWon(){
-        if (player1.won)
+        if (player1.getWon())
             theVictor = player1;
         else
             theVictor = player2;
 
-        playerHasWonS = "Congratulations " + theVictor.name + "! You are victorius!";
+        playerHasWonS = "Congratulations " + theVictor.getName() + "! You are victorius!";
         System.out.println(playerHasWonS);
     }
 
@@ -68,7 +68,6 @@ public class Message {
     }
 
     public void playerExtraTurnButLosePoints(){
-        //Hvis du læser dette så HAHAHAHA for et navn!
         playerHaveAnExtraTurnString = "You got two 1's and lose all your point! "+ "\n" + "But you can Roll again!";
 
         System.out.println(playerHaveAnExtraTurnString);

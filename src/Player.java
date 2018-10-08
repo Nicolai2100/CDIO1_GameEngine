@@ -2,18 +2,18 @@ import java.util.Scanner;
 
 public class Player {
 
-    String name;
-    String playerRollSumString;
-    String playerLosePointsString;
+    private String name;
+    private String playerRollSumString;
+    private String playerLosePointsString;
 
-    static Player ref1;
-    static Player ref2;
+    private static Player ref1;
+    private static Player ref2;
 
-    int playerRollSum;
-    int playerSumSoFar;
-    int lastRollSum;
-    boolean doubleSixBool = false;
-    boolean won = false;
+    private int playerRollSum;
+    private int playerSumSoFar;
+    private int lastRollSum;
+    private boolean doubleSixBool = false;
+    private boolean won = false;
 
     //Objekter
     Dice die1 = new Dice();
@@ -43,7 +43,7 @@ public class Player {
 
         else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
 
-            playerRollSum = diceCup.sum;
+            playerRollSum = diceCup.getSum();
             playerSumSoFar = playerSumSoFar + playerRollSum;
 
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6)
@@ -53,7 +53,7 @@ public class Player {
             playerGotTwoOfEqualValue();
 
         } else{
-            playerRollSum = diceCup.sum;
+            playerRollSum = diceCup.getSum();
             playerSumSoFar = playerSumSoFar + playerRollSum;
             lastRollSum = playerRollSum;
 
@@ -100,5 +100,12 @@ public class Player {
             playerGotTwoOfEqualValue();
 
             return doubleSixBool;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public boolean getWon(){
+        return won;
     }
 }
