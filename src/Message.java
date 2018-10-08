@@ -38,15 +38,18 @@ public class Message {
         playersTurnS = "Its " + player1.name + "'s turn! Pres enter to roll!";
         System.out.println(playersTurnS);
     }
+
     public void player2sTurn(){
 
         playersTurnS = "Its " + player2.name + "'s turn! Pres enter to roll!";
         System.out.println(playersTurnS);
     }
+
     public void playerRoll(){
        // playerRollSumString = name + " har slået " + playerRollSum + " Din score er nu " + playerSumSoFar;
         System.out.println(playerRollSumString);
     }
+
     public void playerHasWon(){
         if (player1.won)
             theVictor = player1;
@@ -64,7 +67,7 @@ public class Message {
         System.out.println(playerHaveAnExtraTurnString);
     }
 
-    public void playerHaveAnExtraTurnButLosePoints(){
+    public void playerExtraTurnButLosePoints(){
         //Hvis du læser dette så HAHAHAHA for et navn!
         playerHaveAnExtraTurnString = "You got two 1's and lose all your point! "+ "\n" + "But you can Roll again!";
 

@@ -78,15 +78,15 @@ public class Player {
 
     public void playerGotTwoOfEqualValue(){
         if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue()) {
-            message.playerHaveAnExtraTurnButLosePoints();
+            message.playerExtraTurnButLosePoints();
         }
         else if (diceCup.die1.getFaceValue() != 1 &&
                 diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue());
         {
-            message.playerHaveAnExtraTurn();
-            if (playerSumSoFar < 40)
-            playerRoll();
-
+            if (playerSumSoFar < 40){
+                message.playerHaveAnExtraTurn();
+                playerRoll();
+            }
             else{
             won = true;
             System.out.println("You win because you have 40 points and got a double!");
