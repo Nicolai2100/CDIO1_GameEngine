@@ -40,6 +40,7 @@ public class Player {
             playerGotTwoOfEqualValue();
         }
 
+
         else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
 
             playerRollSum = diceCup.sum;
@@ -64,8 +65,8 @@ public class Player {
 
     public void playerWon(){
 
-        if (playerSumSoFar == 40 || playerSumSoFar > 40
-        && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
+        if (playerSumSoFar >= 40
+        && (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue())) {
             won = true;
             System.out.println("You win because you have 40 points and got a double!");
         }
