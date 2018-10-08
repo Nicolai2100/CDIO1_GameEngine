@@ -16,23 +16,9 @@ public class GameEngine {
         Message message = new Message(player1, player2);
         //Method that gives an introduction to the game. Rules, etc.
         message.startGame();
-        // Hvem starter?
 
-            System.out.println("To find out who begins");
-            System.out.println("The youngest person will roll the dice:");
-            die1.roll();
-            System.out.println("The youngest person got " + die1.getFaceValue()+".");
-            System.out.println("Then the oldest person:");
-            die2.roll();
-            System.out.println("The oldest person got " + die2.getFaceValue()+".");
-            if (die1.getFaceValue() > die2.getFaceValue()) {
-                System.out.println("The youngest person will enter their name first.");
-            } else if (die1.getFaceValue() < die2.getFaceValue()) {
-                System.out.println("The oldest person will enter their name first.");
-            }
-            else if (die1.getFaceValue() == die2.getFaceValue()){
-                System.out.println("You got the same value, therefore the youngest person enters their name first");
-            }
+        //Method that decides who will start
+        player1.decider();
 
         //Set player 1 name
         player1.setName(scan.next());

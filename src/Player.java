@@ -83,20 +83,38 @@ public class Player {
                 playerRoll();
             }
             else{
-            won = true;
-            System.out.println("You win because you have 40 points and got a double!");
+                won = true;
+                System.out.println("You win because you have 40 points and got a double!");
             }
         }
     }
     public boolean playerWonBydoubleSix(){
-            if (diceCup.rollSum() == 12 && lastRollSum == 12)
-            {doubleSixBool = true;
-                System.out.println("You win because you got a double, double six!!!");
-            }
-            else
+        if (diceCup.rollSum() == 12 && lastRollSum == 12){
+            doubleSixBool = true;
+            System.out.println("You win because you got a double, double six!!!");
+        }
+        else
             playerGotTwoOfEqualValue();
-            return doubleSixBool;
+        return doubleSixBool;
     }
+    public void decider(){
+        System.out.println("To find out who begins");
+        System.out.println("The youngest person will roll the dice:");
+        die1.roll();
+        System.out.println("The youngest person got " + die1.getFaceValue()+".");
+        System.out.println("Then the oldest person:");
+        die2.roll();
+        System.out.println("The oldest person got " + die2.getFaceValue()+".");
+        if (die1.getFaceValue() > die2.getFaceValue()) {
+                System.out.println("The youngest person will enter their name first.");
+        }else if (die1.getFaceValue() < die2.getFaceValue()) {
+            System.out.println("The oldest person will enter their name first.");
+            }
+        else if (die1.getFaceValue() == die2.getFaceValue()){
+            System.out.println("You got the same value, therefore the youngest person enters their name first");
+        }
+    }
+
     public String getName() {
         return name;
     }
