@@ -16,6 +16,7 @@ public class GameEngine {
         Message message = new Message(player1, player2);
 
         message.startGame();
+
         //Get player 1 name
         player1.name = scan.next();
         message.startGame2();
