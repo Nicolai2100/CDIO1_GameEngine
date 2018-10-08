@@ -6,9 +6,8 @@ public class Message {
     String playerHaveAnExtraTurnString;
     String playerRollSumString;
 
-    Player player1;
-    Player player2;
-    Player theVictor;
+    private Player player1, player2;
+    private Player theVictor;
 
     public Message(Player player1, Player player2){
         this.player1 = player1;
@@ -22,9 +21,17 @@ public class Message {
                 "The one who gets 40 points and a roll with two dices of equal value wins!\n" +
                 "Special rules: If a player rolls two dices with the value of 1 each, the player looses all points.\n" +
                 "If a player roll two dices of equal value, he gets an extra turn.\n" +
-                "If a player two times in a row rolls dices with the value of 6, he wins.\n" +
-                "\nPlease enter the name of player 1.";
+                "If a player two times in a row rolls dices with the value of 6, he wins.\n"+
+                "\nTo decide who begins, You will roll the dice, the youngest person rolls first, then"+
+                "\nthe other person rolls. The person with the highest number enters their name first."+
+                "\nIf you get the same number, the youngest person enters their name first.\n";
 
+
+        System.out.println(startGameS);
+    }
+
+    public void startGame1 (){
+        startGameS = "\nPlease enter the name of player 1.";
         System.out.println(startGameS);
     }
 
@@ -32,45 +39,29 @@ public class Message {
         startGameS = "Please enter the name of player 2.";
         System.out.println(startGameS);
     }
-
     public void player1sTurn(){
-
-        playersTurnS = "Its " + player1.name + "'s turn! Pres enter to roll!";
+        playersTurnS = "Its " + player1.getName() + "'s turn! Pres enter to roll!";
         System.out.println(playersTurnS);
     }
-
     public void player2sTurn(){
-
-        playersTurnS = "Its " + player2.name + "'s turn! Pres enter to roll!";
+        playersTurnS = "Its " + player2.getName() + "'s turn! Pres enter to roll!";
         System.out.println(playersTurnS);
     }
-
-    public void playerRoll(){
-       // playerRollSumString = name + " har slået " + playerRollSum + " Din score er nu " + playerSumSoFar;
-        System.out.println(playerRollSumString);
-    }
-
     public void playerHasWon(){
-        if (player1.won)
+        if (player1.getWon())
             theVictor = player1;
         else
             theVictor = player2;
 
-        playerHasWonS = "Congratulations " + theVictor.name + "! You are victorius!";
+        playerHasWonS = "Congratulations " + theVictor.getName() + "! You are victorius!";
         System.out.println(playerHasWonS);
     }
-
     public void playerHaveAnExtraTurn(){
-
         playerHaveAnExtraTurnString = "You got two of equal number! Roll again!";
-
         System.out.println(playerHaveAnExtraTurnString);
     }
-
     public void playerExtraTurnButLosePoints(){
-        //Hvis du læser dette så HAHAHAHA for et navn!
         playerHaveAnExtraTurnString = "You got two 1's and lose all your point! "+ "\n" + "But you can Roll again!";
-
         System.out.println(playerHaveAnExtraTurnString);
     }
 }
