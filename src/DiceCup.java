@@ -2,6 +2,8 @@ public class DiceCup {
 
     Dice die1, die2;
     private int sum;
+    private int faceValue1;
+    private int faceValue2;
 
     //Constructor
     public DiceCup(Dice dice1, Dice dice2 ){
@@ -10,7 +12,9 @@ public class DiceCup {
     }
     //The method rolls two dice and returns their value as an integer.
     public int rollSum(){
-        return sum = die1.roll() + die2.roll();
+        faceValue1 = die1.roll();
+        faceValue2= die2.roll();
+        return sum = faceValue1 + faceValue2;
     }
 
     public int getDie1() {
@@ -20,6 +24,13 @@ public class DiceCup {
     public int getDie2() {
         return die2.getFaceValue();
     }
+    public void setFaceValue1(int faceValue) {
+        this.faceValue1 = faceValue;
+    }
+    public void setFaceValue2(int faceValue) {
+        this.faceValue1 = faceValue;
+    }
+
 
     public int getSum() { return sum; }
 }
