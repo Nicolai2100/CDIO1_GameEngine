@@ -36,7 +36,7 @@ public class Player {
         System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
 
         if (diceCup.die1.getFaceValue() == 1 && diceCup.die2.getFaceValue() == 1){
-            playerLosePoints();
+            playerSumSoFar = 0;
             playerGotTwoOfEqualValue();
         }
 
@@ -72,9 +72,6 @@ public class Player {
         }
     }
     //to enere og spiller mister point
-    public void playerLosePoints() {
-        playerSumSoFar = 0;
-        }
 
     public void playerGotTwoOfEqualValue(){
         if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue()) {
