@@ -2,18 +2,17 @@ import java.util.Scanner;
 
 public class Player {
 
-    String name;
-    String playerRollSumString;
-    String playerLosePointsString;
+    private String name;
+    private String playerRollSumString;
 
-    static Player ref1;
-    static Player ref2;
+    private static Player ref1;
+    private static Player ref2;
 
-    int playerRollSum;
-    int playerSumSoFar;
-    int lastRollSum;
-    boolean doubleSixBool = false;
-    boolean won = false;
+    private int playerRollSum;
+    private int playerSumSoFar;
+    private int lastRollSum;
+    private boolean doubleSixBool = false;
+    private boolean won = false;
 
     //Objekter
     Dice die1 = new Dice();
@@ -22,57 +21,56 @@ public class Player {
     Message message = new Message(ref1, ref2);
     Scanner scan = new Scanner(System.in);
 
-    public Player(String aName, int aPlayerSumSofar , DiceCup diceCup){
-
-        name = aName;
+    //Construktor
+    public Player(int aPlayerSumSofar , DiceCup diceCup){
         playerSumSoFar = aPlayerSumSofar;
-
     }
 
+    //The main method of the game that help control the game flow.
     public void playerRoll(){
+        //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
+        //The values of each die is printed and the rest of the method is valuating this result.
         String key1 = scan.nextLine();
         diceCup.rollSum();
         System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
         System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
 
+        //If the value of each die is 1 then the player should loose all points but still get an extra turn.
         if (diceCup.die1.getFaceValue() == 1 && diceCup.die2.getFaceValue() == 1){
             playerSumSoFar = 0;
             playerGotTwoOfEqualValue();
         }
-
-
         else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
-
-            playerRollSum = diceCup.sum;
+            //else if the player rolls two dice of similar value - which is not one, then he should get an extra turn.
+            playerRollSum = diceCup.getSum();
             playerSumSoFar = playerSumSoFar + playerRollSum;
-
+            //If the player rolls two dice of equal value and is 6, then another method is called to valuate whether
+            //the player rolled two dice with the value of 6 each, which would make him an instant winner.
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6)
             playerWonBydoubleSix();
 
             else
             playerGotTwoOfEqualValue();
-
+            //If the player doesn't roll two dice of equal value, the sum of the dice will be saved in the playerSumSoFar.
         } else{
-            playerRollSum = diceCup.sum;
+            playerRollSum = diceCup.getSum();
             playerSumSoFar = playerSumSoFar + playerRollSum;
             lastRollSum = playerRollSum;
-
+            //Prints out the output of the turn.
             playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
             System.out.println(playerRollSumString);
         playerWon();
         }
     }
-
+    //Valuates whether the player have won or not.
     public void playerWon(){
-
         if (playerSumSoFar >= 40
         && (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue())) {
             won = true;
             System.out.println("You win because you have 40 points and got a double!");
         }
     }
-    //to enere og spiller mister point
-
+    //Valuates what to do if the player rolls two dice of equal value.
     public void playerGotTwoOfEqualValue(){
         if (diceCup.die1.getFaceValue() == 1 && 1 == diceCup.die2.getFaceValue()) {
             message.playerExtraTurnButLosePoints();
@@ -90,7 +88,6 @@ public class Player {
             }
         }
     }
-
     public boolean playerWonBydoubleSix(){
             if (diceCup.rollSum() == 12 && lastRollSum == 12)
             {doubleSixBool = true;
@@ -98,7 +95,15 @@ public class Player {
             }
             else
             playerGotTwoOfEqualValue();
-
             return doubleSixBool;
+    }
+    public String getName() {
+        return name;
+    }
+    public boolean getWon(){
+        return won;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }
