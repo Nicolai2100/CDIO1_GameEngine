@@ -8,7 +8,7 @@ public DiceCup(Dice dice1, Dice dice2 ){
     die2 = dice2;
 
 }
-
+// Development
     public boolean ens(){
     boolean ensTerninger = false;
     if (die1.getFaceValue() == die2.getFaceValue())
