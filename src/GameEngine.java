@@ -31,10 +31,11 @@ public class GameEngine {
                 System.out.println("The oldest person will enter their name first.");
             }
             else if (die1.getFaceValue() == die2.getFaceValue()){
-                System.out.println("You got the same value, therefore the youngest person enters their name first");
+                System.out.println("You got the same value, therefore the youngest person enters their name first.");
             }
 
         //Set player 1 name
+        message.startGame1();
         player1.setName(scan.next());
         message.startGame2();
 

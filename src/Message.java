@@ -21,9 +21,17 @@ public class Message {
                 "The one who gets 40 points and a roll with two dices of equal value wins!\n" +
                 "Special rules: If a player rolls two dices with the value of 1 each, the player looses all points.\n" +
                 "If a player roll two dices of equal value, he gets an extra turn.\n" +
-                "If a player two times in a row rolls dices with the value of 6, he wins.\n" +
-                "\nPlease enter the name of player 1.";
+                "If a player two times in a row rolls dices with the value of 6, he wins.\n"+
+                "\nTo decide who begins, You will roll the dice, the youngest person rolls first, then"+
+                "\nthe other person rolls. The person with the highest number enters their name first."+
+                "\nIf you get the same number, the youngest person enters their name first.\n";
 
+
+        System.out.println(startGameS);
+    }
+
+    public void startGame1 (){
+        startGameS = "\nPlease enter the name of player 1.";
         System.out.println(startGameS);
     }
 
