@@ -16,7 +16,7 @@ public class Message {
 
     public void startGame(){
         startGameS = "Welcome to the Dice Game! \n" +
-                "The Dice Game is a game played with two persens. Each player takes turns in throwing two dices in a dice cup.\n" +
+                "The Dice Game is a game played with two persons. Each player takes turns in throwing two dices in a dice cup.\n" +
                 "The sum of the dices is added as points to the players total sum.\n"+
                 "The one who gets 40 points and a roll with two dices of equal value wins!\n" +
                 "Special rules: If a player rolls two dices with the value of 1 each, the player looses all points.\n" +

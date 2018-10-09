@@ -44,6 +44,7 @@ public class Player {
             //else if the player rolls two dice of similar value - which is not one, then he should get an extra turn.
             playerRollSum = diceCup.getSum();
             playerSumSoFar = playerSumSoFar + playerRollSum;
+
             //If the player rolls two dice of equal value and is 6, then another method is called to valuate whether
             //the player rolled two dice with the value of 6 each, which would make him an instant winner.
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
@@ -77,6 +78,7 @@ public class Player {
     public void playerGotTwoOfEqualValue(){
         if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             message.playerExtraTurnButLosePoints();
+            playerRoll();
         }
         else if (diceCup.getFaceValueDie1() != 1 && diceCup.getFaceValueDie1() == diceCup.getFaceValueDie2()) {
             if (playerSumSoFar < 40){
