@@ -18,9 +18,9 @@ public class Message {
         startGameS = "Welcome to the Dice Game! \n" +
                 "The Dice Game is a game between two persons. Each player takes turns throwing two dice in a dice cup.\n" +
                 "The sum of the dice is added as points to the players total sum.\n"+
-                "The one who gets 40 points and a roll with two dices of equal value wins!\n" +
+                "The one who gets 40 points and a roll with two dice of equal value wins!\n" +
                 "Special rules: If a player rolls two dice with the value of 1, the player looses all points.\n" +
-                "If a player roll two dices of equal value, he gets an extra turn.\n" +
+                "If a player roll two dice of equal value, he gets an extra turn.\n" +
                 "If a player two times in a row rolls both dice with the value of 6, he wins.\n"+
                 "\nTo decide who begins, the players must roll the dice, the youngest person rolls first, then"+
                 "\nthe other person rolls. The person with the highest number enters their name first."+
