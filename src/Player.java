@@ -31,7 +31,6 @@ public class Player {
     public void playerRoll(){
         //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
         //The values of each die is printed and the rest of the method is valuating this result.
-        String key1 = scan.nextLine();
         diceCup.rollSum();
         System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
         System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
@@ -39,7 +38,6 @@ public class Player {
         if (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()){
             playerGotTwoOfEqualValue();
             }
-
         //If the player doesn't roll two dice of equal value, the sum of the dice will be saved in the playerSumSoFar.
         else {
             playerRollSum = diceCup.getSum();
@@ -74,10 +72,11 @@ public class Player {
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
                 playerRollSum = diceCup.getSum();
                 playerSumSoFar = playerSumSoFar + playerRollSum;
-                lastRollSum = playerRollSum;
                 playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
                 System.out.println(playerRollSumString);
                 playerWonBydoubleSix();
+                lastRollSum = playerRollSum;
+
             }
             else if (playerSumSoFar < 40){
                 playerRollSum = diceCup.getSum();

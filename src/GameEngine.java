@@ -32,13 +32,14 @@ public class GameEngine {
 
         //Start the main game
         do {
+            String key1 = scan.nextLine();
             message.player1sTurn();
             player1.playerRoll();
 
             if (player1.getWon()){
                 break;
             }
-
+            String key2 = scan.nextLine();
             message.player2sTurn();
             player2.playerRoll();
 
