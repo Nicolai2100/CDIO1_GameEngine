@@ -8,13 +8,16 @@ public class DiceTest {
 
     @org.junit.Test
     public void roll() {
-        for (int i = 1; i<=1000; i++){
+        // we test if the die can roll facevalues smaller than 1 or
+        // bigger than 6.
+        for (int i = 1; i <= 1000; i++){
             int faceValue = die.roll();
-            assertTrue(1<= faceValue && faceValue <= 6);
+            assertTrue(1 <= faceValue && faceValue <= 6);
         }
 
-        // Vi tester om terningen over 60000 kast fordeler sig statistisk repræsentativt.
-        // Det vil sige at alle øjne skal have været vist 10000 gange plus/minus 400.
+        // we test if the die over 60000 rolls is according to the theoretical
+        // probability. We accept if the facevalue is evenly spread - (10000 each)
+        //  - among 1 to 6, plus/minus 400.
         ArrayList<Integer> list = new ArrayList<Integer>();
         for (int j = 1; j <= 60000; j++){
             list.add(die.roll());
