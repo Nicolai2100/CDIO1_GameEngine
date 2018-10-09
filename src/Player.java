@@ -89,12 +89,14 @@ public class Player {
         }
     }
     public boolean playerWonBydoubleSix(){
-        if (diceCup.rollSum() == 12 && lastRollSum == 12){
+        // (diceCup.rollSum == 12 && lastRollSum == 12)
+        if (playerRollSum == 12 && lastRollSum == 12){
             doubleSixBool = true;
             System.out.println("You win because you got a double, double six!!!");
         }
-        else
+        else{
             playerGotTwoOfEqualValue();
+        }
         return doubleSixBool;
     }
     public void decider(){
@@ -129,7 +131,27 @@ public class Player {
         this.playerSumSoFar = playerSumSoFar;
     }
 
+    public void setLastRollSum(int lastRollSum) {
+        this.lastRollSum = lastRollSum;
+    }
+
+    public int getLastRollSum() {
+        return lastRollSum;
+    }
+
     public int getPlayerSumSoFar() {
         return playerSumSoFar;
+    }
+
+    public boolean getDoubleSixBool(){
+        return doubleSixBool;
+    }
+
+    public void setPlayerRollSum(int playerRollSum) {
+        this.playerRollSum = playerRollSum;
+    }
+
+    public int getPlayerRollSum() {
+        return playerRollSum;
     }
 }

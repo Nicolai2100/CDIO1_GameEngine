@@ -28,10 +28,26 @@ public class PlayerTest {
 
     @Test
     public void playerGotTwoOfEqualValue() {
+        player1.diceCup.setFaceValueDie1(2);
+        player1.diceCup.setFaceValueDie2(2);
+        player1.setPlayerSumSoFar(39);
+        int x = player1.getPlayerSumSoFar();
+        player1.playerRoll();
+        System.out.println(player1.getPlayerSumSoFar());
+        System.out.println(x);
+        //assertTrue(player1.getPlayerSumSoFar() != x );
+
+
     }
 
     @Test
     public void playerWonBydoubleSix() {
+        player1.getDoubleSixBool();
+        assertEquals(player1.getDoubleSixBool(), false);
+        player1.setPlayerRollSum(12);
+        player1.setLastRollSum(12);
+        player1.playerWonBydoubleSix();
+        assertEquals(player1.getDoubleSixBool(), true);
     }
 
     @Test
