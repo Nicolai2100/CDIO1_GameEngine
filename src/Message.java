@@ -26,7 +26,6 @@ public class Message {
                 "\nthe other person rolls. The person with the highest number enters their name first."+
                 "\nIf you get the same number, the youngest person enters their name first.\n";
 
-
         System.out.println(startGameS);
     }
 
@@ -39,27 +38,33 @@ public class Message {
         startGameS = "Please enter the name of player 2.";
         System.out.println(startGameS);
     }
+
     public void player1sTurn(){
-        playersTurnS = "Its " + player1.getName() + "'s turn! Pres enter to roll!";
+        playersTurnS = "Its " + player1.getName() + "'s turn! Press Enter to roll!";
         System.out.println(playersTurnS);
     }
+
     public void player2sTurn(){
-        playersTurnS = "Its " + player2.getName() + "'s turn! Pres enter to roll!";
+        playersTurnS = "Its " + player2.getName() + "'s turn! Press enter to roll!";
         System.out.println(playersTurnS);
     }
+
     public void playerHasWon(){
-        if (player1.getWon())
+        if (player1.getWon()){
             theVictor = player1;
-        else
+        } else {
             theVictor = player2;
+        }
 
         playerHasWonS = "Congratulations " + theVictor.getName() + "! You are victorius!";
         System.out.println(playerHasWonS);
     }
+
     public void playerHaveAnExtraTurn(){
         playerHaveAnExtraTurnString = "You got two of equal number! Roll again!";
         System.out.println(playerHaveAnExtraTurnString);
     }
+
     public void playerExtraTurnButLosePoints(){
         playerHaveAnExtraTurnString = "You got two 1's and lose all your point! "+ "\n" + "But you can Roll again!";
         System.out.println(playerHaveAnExtraTurnString);
