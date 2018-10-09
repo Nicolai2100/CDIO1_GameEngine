@@ -14,7 +14,8 @@ public class Player {
     private static Player ref1;
     private static Player ref2;
 
-    //Objekter
+    //Objects
+
     Dice die1 = new Dice();
     Dice die2 = new Dice();
     DiceCup diceCup = new DiceCup(die1, die2);
@@ -35,27 +36,12 @@ public class Player {
         System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
         System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
 
-        //If the value of each die is 1 then the player should loose all points but still get an extra turn.
-        if (diceCup.die1.getFaceValue() == 1 && diceCup.die2.getFaceValue() == 1){
-            playerSumSoFar = 0;
+        if (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()){
             playerGotTwoOfEqualValue();
-
-        } else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
-            //else if the player rolls two dice of similar value - which is not one, then he should get an extra turn.
-            playerRollSum = diceCup.getSum();
-            playerSumSoFar = playerSumSoFar + playerRollSum;
-
-            //If the player rolls two dice of equal value and is 6, then another method is called to valuate whether
-            //the player rolled two dice with the value of 6 each, which would make him an instant winner.
-            if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
-                playerWonBydoubleSix();
-            }
-            else {
-                playerGotTwoOfEqualValue();
             }
 
         //If the player doesn't roll two dice of equal value, the sum of the dice will be saved in the playerSumSoFar.
-        } else {
+        else {
             playerRollSum = diceCup.getSum();
             playerSumSoFar = playerSumSoFar + playerRollSum;
             lastRollSum = playerRollSum;
@@ -77,11 +63,20 @@ public class Player {
     //Valuates what to do if the player rolls two dice of equal value.
     public void playerGotTwoOfEqualValue(){
         if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
+            playerSumSoFar = 0;
             message.playerExtraTurnButLosePoints();
             playerRoll();
         }
-        else if (diceCup.getFaceValueDie1() != 1 && diceCup.getFaceValueDie1() == diceCup.getFaceValueDie2()) {
-            if (playerSumSoFar < 40){
+        else{
+
+            if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
+                playerRollSum = diceCup.getSum();
+                playerSumSoFar = playerSumSoFar + playerRollSum;
+                playerWonBydoubleSix();
+            }
+            else if (playerSumSoFar < 40){
+                playerRollSum = diceCup.getSum();
+                playerSumSoFar = playerSumSoFar + playerRollSum;
                 message.playerHaveAnExtraTurn();
                 playerRoll();
             }
@@ -91,18 +86,17 @@ public class Player {
             }
         }
     }
-
     //If the player rolled 12 last turn and this turn, he wins!
     public boolean playerWonBydoubleSix(){
         if (playerRollSum == 12 && lastRollSum == 12){
-            doubleSixBool = true;
+            won = true;
             System.out.println("You win because you got a double, double six!!!");
         }
         else{
-            playerGotTwoOfEqualValue();
+            message.playerHaveAnExtraTurn();
+            playerRoll();
         }
-
-        return doubleSixBool;
+        return won;
     }
 
     // Decides who has the first roll of the game
