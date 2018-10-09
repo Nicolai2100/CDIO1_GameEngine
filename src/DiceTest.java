@@ -22,7 +22,6 @@ public class DiceTest {
         for (int j = 1; j <= 60000; j++){
             list.add(die.roll());
         }
-
         for (int j = 1; j<=6; j++){
             int test = Collections.frequency(list, j);
             assertTrue(9600 <= test && test <= 10400);

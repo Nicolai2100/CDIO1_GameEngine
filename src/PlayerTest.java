@@ -49,5 +49,4 @@ public class PlayerTest {
         player1.playerWonBydoubleSix();
         assertEquals(player1.getDoubleSixBool(), true);
     }
-
 }
