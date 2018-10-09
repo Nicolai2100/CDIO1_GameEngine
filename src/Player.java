@@ -64,6 +64,8 @@ public class Player {
     public void playerGotTwoOfEqualValue(){
         if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             playerSumSoFar = 0;
+            playerRollSumString = name + "'s sum is " + "0" + ". Current score: " + "0" + "\n";
+            System.out.println(playerRollSumString);
             message.playerExtraTurnButLosePoints();
             playerRoll();
         }
