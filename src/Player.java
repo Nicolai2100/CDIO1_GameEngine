@@ -31,7 +31,6 @@ public class Player {
     public void playerRoll(){
         //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
         //The values of each die is printed and the rest of the method is valuating this result.
-        String key1 = scan.nextLine();
         diceCup.rollSum();
         System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
         System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
