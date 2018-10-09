@@ -103,7 +103,7 @@ public class Player {
     public boolean playerWonBydoubleSix(){
         if (playerRollSum == 12 && lastRollSum == 12){
             won = true;
-            System.out.println("You win because you got a double, double six!!!");
+            System.out.println("You win because you got two double sixes in a row!!!");
         }
         else{
             message.playerHaveAnExtraTurn();
@@ -116,18 +116,18 @@ public class Player {
     public void decider(){
         System.out.println("To find out who begins\nThe youngest person will roll the dice:");
         die1.roll();
-        System.out.println("The youngest person got " + die1.getFaceValue()+ ".\nThen the oldest person:");
+        System.out.println("The youngest person got " + die1.getFaceValue()+ ".\nThen the other person:");
         die2.roll();
-        System.out.println("The oldest person got " + die2.getFaceValue()+".");
+        System.out.println("The other person got " + die2.getFaceValue()+".");
 
         if (die1.getFaceValue() > die2.getFaceValue()) {
             System.out.println("The youngest person will enter their name first.");
         }
         else if (die1.getFaceValue() < die2.getFaceValue()) {
-            System.out.println("The oldest person will enter their name first.");
+            System.out.println("The other person will enter their name first.");
         }
         else {
-            System.out.println("You got the same value, therefore the youngest person enters their name first");
+            System.out.println("You got the same value, therefore the youngest person must enter their name first");
         }
     }
 

@@ -16,15 +16,15 @@ public class Message {
 
     public void startGame(){
         startGameS = "Welcome to the Dice Game! \n" +
-                "The Dice Game is a game played with two persons. Each player takes turns in throwing two dices in a dice cup.\n" +
-                "The sum of the dices is added as points to the players total sum.\n"+
-                "The one who gets 40 points and a roll with two dices of equal value wins!\n" +
-                "Special rules: If a player rolls two dices with the value of 1 each, the player looses all points.\n" +
-                "If a player roll two dices of equal value, he gets an extra turn.\n" +
-                "If a player two times in a row rolls dices with the value of 6, he wins.\n"+
-                "\nTo decide who begins, You will roll the dice, the youngest person rolls first, then"+
+                "The Dice Game is a game between two persons. Each player takes turns throwing two dice in a dice cup.\n" +
+                "The sum of the dice is added as points to the players total sum.\n"+
+                "The one who gets 40 points and a roll with two dice of equal value wins!\n" +
+                "Special rules: If a player rolls two dice with the value of 1, the player looses all points.\n" +
+                "If a player roll two dice of equal value, he gets an extra turn.\n" +
+                "If a player two times in a row rolls both dice with the value of 6, he wins.\n"+
+                "\nTo decide who begins, the players must roll the dice, the youngest person rolls first, then"+
                 "\nthe other person rolls. The person with the highest number enters their name first."+
-                "\nIf you get the same number, the youngest person enters their name first.\n";
+                "\nIf the players get the same number, the youngest person enters their name first.\n";
 
         System.out.println(startGameS);
     }
@@ -40,12 +40,12 @@ public class Message {
     }
 
     public void player1sTurn(){
-        playersTurnS = "Its " + player1.getName() + "'s turn! Press Enter to roll!";
+        playersTurnS = "It's " + player1.getName() + "'s turn! Press Enter to roll!";
         System.out.println(playersTurnS);
     }
 
     public void player2sTurn(){
-        playersTurnS = "Its " + player2.getName() + "'s turn! Press enter to roll!";
+        playersTurnS = "It's " + player2.getName() + "'s turn! Press enter to roll!";
         System.out.println(playersTurnS);
     }
 
@@ -56,17 +56,17 @@ public class Message {
             theVictor = player2;
         }
 
-        playerHasWonS = "Congratulations " + theVictor.getName() + "! You are victorius!";
+        playerHasWonS = "Congratulations " + theVictor.getName() + "! You are victorious!";
         System.out.println(playerHasWonS);
     }
 
     public void playerHaveAnExtraTurn(){
-        playerHaveAnExtraTurnString = "You got two of equal number! Roll again!";
+        playerHaveAnExtraTurnString = "You got two of equals! Roll again!";
         System.out.println(playerHaveAnExtraTurnString);
     }
 
     public void playerExtraTurnButLosePoints(){
-        playerHaveAnExtraTurnString = "You got two 1's and lose all your point! Current score = 0 "+ "\n" + "But you can Roll again!";
+        playerHaveAnExtraTurnString = "You got two 1's and lose all your points!"+ "\n" + "But you can Roll again!";
         System.out.println(playerHaveAnExtraTurnString);
     }
 }
