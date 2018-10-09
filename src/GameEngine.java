@@ -33,7 +33,6 @@ public class GameEngine {
         //Start the main game
         do {
             message.player1sTurn();
-            player1.setKey1(scan.next());
             player1.playerRoll();
 
             if (player1.getWon()){
@@ -41,7 +40,6 @@ public class GameEngine {
             }
 
             message.player2sTurn();
-            player2.setKey1(scan.next());
             player2.playerRoll();
 
             if (player2.getWon()){
