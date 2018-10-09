@@ -86,6 +86,7 @@ public class Player {
             }
         }
     }
+
     //If the player rolled 12 last turn and this turn, he wins!
     public boolean playerWonBydoubleSix(){
         if (playerRollSum == 12 && lastRollSum == 12){
