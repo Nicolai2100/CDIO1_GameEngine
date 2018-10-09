@@ -50,7 +50,4 @@ public class PlayerTest {
         assertEquals(player1.getDoubleSixBool(), true);
     }
 
-    @Test
-    public void decider() {
-    }
 }
