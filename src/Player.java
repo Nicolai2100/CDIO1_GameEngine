@@ -38,17 +38,24 @@ public class Player {
         //If the value of each die is 1 then the player should loose all points but still get an extra turn.
         if (diceCup.die1.getFaceValue() == 1 && diceCup.die2.getFaceValue() == 1){
             playerSumSoFar = 0;
-            playerGotTwoOfEqualValue();
+            playerRollSum = diceCup.getSum();
+            //Prints out the output of the turn.
+            playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+            System.out.println(playerRollSumString);            playerGotTwoOfEqualValue();
         }
         else if (diceCup.die1.getFaceValue() != 1 && diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()) {
             //else if the player rolls two dice of similar value - which is not one, then he should get an extra turn.
-            playerRollSum = diceCup.getSum();
-            playerSumSoFar = playerSumSoFar + playerRollSum;
             //If the player rolls two dice of equal value and is 6, then another method is called to valuate whether
             //the player rolled two dice with the value of 6 each, which would make him an instant winner.
-            if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6)
-            playerWonBydoubleSix();
-
+            playerRollSum = diceCup.getSum();
+            playerSumSoFar = playerSumSoFar + playerRollSum;
+            lastRollSum = playerRollSum;
+            //Prints out the output of the turn.
+            playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+            System.out.println(playerRollSumString);            if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6) {
+                playerWonBydoubleSix();
+                playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+            }
             else
             playerGotTwoOfEqualValue();
             //If the player doesn't roll two dice of equal value, the sum of the dice will be saved in the playerSumSoFar.
