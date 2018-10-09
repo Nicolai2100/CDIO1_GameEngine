@@ -72,15 +72,26 @@ public class Player {
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
                 playerRollSum = diceCup.getSum();
                 playerSumSoFar = playerSumSoFar + playerRollSum;
+                lastRollSum = playerRollSum;
+                playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+                System.out.println(playerRollSumString);
                 playerWonBydoubleSix();
             }
             else if (playerSumSoFar < 40){
                 playerRollSum = diceCup.getSum();
                 playerSumSoFar = playerSumSoFar + playerRollSum;
+                lastRollSum = playerRollSum;
+                playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+                System.out.println(playerRollSumString);
                 message.playerHaveAnExtraTurn();
                 playerRoll();
             }
             else {
+                playerRollSum = diceCup.getSum();
+                playerSumSoFar = playerSumSoFar + playerRollSum;
+                lastRollSum = playerRollSum;
+                playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+                System.out.println(playerRollSumString);
                 won = true;
                 System.out.println("You win because you have 40 points and got a double!");
             }

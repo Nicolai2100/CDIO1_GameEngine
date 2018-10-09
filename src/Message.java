@@ -66,7 +66,7 @@ public class Message {
     }
 
     public void playerExtraTurnButLosePoints(){
-        playerHaveAnExtraTurnString = "You got two 1's and lose all your point! "+ "\n" + "But you can Roll again!";
+        playerHaveAnExtraTurnString = "You got two 1's and lose all your point! Current score = 0 "+ "\n" + "But you can Roll again!";
         System.out.println(playerHaveAnExtraTurnString);
     }
 }
