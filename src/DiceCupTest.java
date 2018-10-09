@@ -27,21 +27,24 @@ public class DiceCupTest {
         }
 
         // we test if the sum of two die is according
-        // to the theoretical probability over 10000 rolls. Deviation less than 2%
+        // to the theoretical probability over 10000 rolls. Deviation less than 5%
         // is accepted.
         ArrayList<Integer> list = new ArrayList<Integer>();
-        for (int i = 1; i <= 10000; i++) {
+        for (int i = 1; i <= 1000; i++) {
             list.add(die1.roll() + die2.roll());
         }
+
 
         // Source: https://wizardofodds.com/gambling/dice/
         double[] theoreticalProbability = { 2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 13.89, 11.11, 8.33, 5.56, 2.78 };
         int index = 0;
         for (int i = 2; i <= 12; i++) {
             double faceValueInstance = Collections.frequency(list, i);
-            double instanceInPercent = (faceValueInstance / 10000) * 100;
+            double instanceInPercent = (faceValueInstance / 1000) * 100;
             double deviation = Math.abs(instanceInPercent - theoreticalProbability[index++]);
-            assertTrue( deviation <= 2.0);
+            System.out.println(deviation);
+            assertTrue( deviation <= 5.0);
         }
+
     }
 }
