@@ -94,7 +94,6 @@ public class Player {
 
     //If the player rolled 12 last turn and this turn, he wins!
     public boolean playerWonBydoubleSix(){
-        // (diceCup.rollSum == 12 && lastRollSum == 12)
         if (playerRollSum == 12 && lastRollSum == 12){
             doubleSixBool = true;
             System.out.println("You win because you got a double, double six!!!");
