@@ -57,18 +57,16 @@ public class Player {
             System.out.println("You win because you have 40 points and got a double!");
         }
     }
-
     //Valuates what to do if the player rolls two dice of equal value.
     public void playerGotTwoOfEqualValue(){
         if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             playerSumSoFar = 0;
-            playerRollSumString = name + "'s sum is " + "0" + ". Current score: " + "0" + "\n";
-            System.out.println(playerRollSumString);
             message.playerExtraTurnButLosePoints();
+            playerRollSumString = name + "'s " + ". Current score: " + "0" + "\n";
+            System.out.println(playerRollSumString);
             playerRoll();
         }
         else{
-
             if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
                 playerRollSum = diceCup.getSum();
                 playerSumSoFar = playerSumSoFar + playerRollSum;
@@ -76,7 +74,6 @@ public class Player {
                 System.out.println(playerRollSumString);
                 playerWonBydoubleSix();
                 lastRollSum = playerRollSum;
-
             }
             else if (playerSumSoFar < 40){
                 playerRollSum = diceCup.getSum();
@@ -111,7 +108,6 @@ public class Player {
         }
         return won;
     }
-
     // Decides who has the first roll of the game
     public void decider(){
         System.out.println("To find out who begins\nThe youngest person will roll the dice:");
@@ -151,20 +147,20 @@ public class Player {
         this.playerSumSoFar = playerSumSoFar;
     }
 
-    public void setLastRollSum(int lastRollSum) {
-        this.lastRollSum = lastRollSum;
-    }
-
     public int getLastRollSum() {
         return lastRollSum;
     }
 
-    public void setPlayerRollSum(int playerRollSum) {
-        this.playerRollSum = playerRollSum;
+    public void setLastRollSum(int lastRollSum) {
+        this.lastRollSum = lastRollSum;
     }
 
     public int getPlayerRollSum() {
         return playerRollSum;
+    }
+
+    public void setPlayerRollSum(int playerRollSum) {
+        this.playerRollSum = playerRollSum;
     }
 
     public boolean getDoubleSixBool(){
