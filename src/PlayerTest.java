@@ -9,9 +9,11 @@ public class PlayerTest {
     Player player1 = new Player(0, diceCup);
     Player player2 = new Player(0, diceCup);
 
-    @Test //let the test fail after 333 ms.
+    @Test(timeout = 333) //let the test fail after 333 ms.
     public void playerRoll() {
-        player1.playerRoll();
+        diceCup.rollSum();
+        System.out.println("Die 1 rolls: " + diceCup.getFaceValueDie1());
+        System.out.println("Die 2 rolls: " + diceCup.getFaceValueDie2());
     }
 
     /*
