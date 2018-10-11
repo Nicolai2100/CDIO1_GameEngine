@@ -48,6 +48,9 @@ public class Message {
         playersTurnS = "It's " + player2.getName() + "'s turn! Press enter to roll!";
         System.out.println(playersTurnS);
     }
+    public void playerWon(){
+        System.out.println("You win because you have 40 points and got a double!");
+    }
 
     public void playerHasWon(){
         if (player1.getWon()){

@@ -31,6 +31,7 @@ public class Player {
     public void playerRoll(){
         //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
         //The values of each die is printed and the rest of the method is valuating this result.
+        String key1 = scan.nextLine();
         diceCup.rollSum();
         System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
         System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
@@ -46,36 +47,36 @@ public class Player {
             //Prints out the output of the turn.
             playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
             System.out.println(playerRollSumString);
-            playerWon();
         }
     }
-
-    //Valuates whether the player have won or not.
-    public void playerWon(){
-        if (playerSumSoFar >= 40 && (diceCup.getFaceValueDie1() == diceCup.getFaceValueDie2())) {
-            won = true;
-            System.out.println("You win because you have 40 points and got a double!");
-        }
-    }
-    //Valuates what to do if the player rolls two dice of equal value.
+   //Valuates what to do if the player rolls two dice of equal value.
     public void playerGotTwoOfEqualValue(){
-        if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
+        if (playerSumSoFar >= 40){
+            won = true;
+            playerRollSum = diceCup.getSum();
+            playerSumSoFar = playerSumSoFar + playerRollSum;
+            lastRollSum = playerRollSum;
+            playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
+            System.out.println(playerRollSumString);
+            message.playerWon();}
+
+        else if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             playerSumSoFar = 0;
             message.playerExtraTurnButLosePoints();
             playerRollSumString = name + "'s " + ". Current score: " + "0" + "\n";
             System.out.println(playerRollSumString);
             playerRoll();
         }
-        else{
-            if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
+        else if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
                 playerRollSum = diceCup.getSum();
                 playerSumSoFar = playerSumSoFar + playerRollSum;
                 playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
                 System.out.println(playerRollSumString);
-                playerWonBydoubleSix();
+                playerWonByDoubleSix();
                 lastRollSum = playerRollSum;
-            }
-            else if (playerSumSoFar < 40){
+        }
+        //(playerSumSoFar < 40)
+        else{
                 playerRollSum = diceCup.getSum();
                 playerSumSoFar = playerSumSoFar + playerRollSum;
                 lastRollSum = playerRollSum;
@@ -84,20 +85,9 @@ public class Player {
                 message.playerHaveAnExtraTurn();
                 playerRoll();
             }
-            else {
-                playerRollSum = diceCup.getSum();
-                playerSumSoFar = playerSumSoFar + playerRollSum;
-                lastRollSum = playerRollSum;
-                playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
-                System.out.println(playerRollSumString);
-                won = true;
-                System.out.println("You win because you have 40 points and got a double!");
-            }
-        }
     }
-
     //If the player rolled 12 last turn and this turn, he wins!
-    public void playerWonBydoubleSix(){
+    public void playerWonByDoubleSix(){
         if (playerRollSum == 12 && lastRollSum == 12){
             won = true;
             System.out.println("You win because you got two double sixes in a row!!!");

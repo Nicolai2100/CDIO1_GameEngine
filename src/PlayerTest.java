@@ -20,10 +20,10 @@ public class PlayerTest {
         player1.setPlayerSumSoFar(40);
         player1.diceCup.setFaceValueDie1(2);
         player1.diceCup.setFaceValueDie2(4);
-        player1.playerWon();
+        //player1.playerWon();
         assertEquals(false, player1.getWon());
         player1.diceCup.setFaceValueDie1(4);
-        player1.playerWon();
+        //player1.playerWon();
         assertEquals(true, player1.getWon());
     }
 
@@ -33,7 +33,7 @@ public class PlayerTest {
         assertEquals(player1.getWon(), false);
         player1.setPlayerRollSum(12);
         player1.setLastRollSum(12);
-        player1.playerWonBydoubleSix();
+        player1.playerWonByDoubleSix();
         assertEquals(player1.getWon(), true);
     }
 }
