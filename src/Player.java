@@ -100,7 +100,7 @@ public class Player {
     }
 
     //If the player rolled 12 last turn and this turn, he wins!
-    public boolean playerWonBydoubleSix(){
+    public void playerWonBydoubleSix(){
         if (playerRollSum == 12 && lastRollSum == 12){
             won = true;
             System.out.println("You win because you got two double sixes in a row!!!");
@@ -109,7 +109,6 @@ public class Player {
             message.playerHaveAnExtraTurn();
             playerRoll();
         }
-        return won;
     }
 
     // Decides who has the first roll of the game
