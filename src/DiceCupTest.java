@@ -26,6 +26,19 @@ public class DiceCupTest {
             assertTrue(2 <= faceValueSum && faceValueSum <= 12);
         }
 
+        // we test if doubles occur according to the theoretical probability
+        // over 1000 rolls, which is 6/36 = 16.67 %. Over 1000 rolls approxiamtely
+        // 167 doubles. We accept a deviation of 5 %.
+        int counter = 0;
+        for (int z = 1; z <= 1000; z++){
+            int faceValue1 = die1.roll();
+            int faceValue2 = die2.roll();
+            if (faceValue1 == faceValue2) {
+                counter++;
+            }
+        }
+        assertTrue(117 < counter && counter < 217);
+
         // we test if the sum of two die is according
         // to the theoretical probability over 10000 rolls. Deviation less than 5%
         // is accepted.
@@ -34,7 +47,6 @@ public class DiceCupTest {
             list.add(die1.roll() + die2.roll());
         }
 
-
         // Source: https://wizardofodds.com/gambling/dice/
         double[] theoreticalProbability = { 2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 13.89, 11.11, 8.33, 5.56, 2.78 };
         int index = 0;
@@ -42,7 +54,6 @@ public class DiceCupTest {
             double faceValueInstance = Collections.frequency(list, i);
             double instanceInPercent = (faceValueInstance / 1000) * 100;
             double deviation = Math.abs(instanceInPercent - theoreticalProbability[index++]);
-            System.out.println(deviation);
             assertTrue( deviation <= 5.0);
         }
 
