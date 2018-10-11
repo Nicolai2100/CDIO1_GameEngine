@@ -63,7 +63,7 @@ public class Player {
         else if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             playerSumSoFar = 0;
             message.playerExtraTurnButLosePoints();
-            playerRollSumString = name + "'s " + ". Current score: " + "0" + "\n";
+            playerRollSumString = name + "'s" + ". Current score: " + "0";
             System.out.println(playerRollSumString);
             playerRoll();
         }
