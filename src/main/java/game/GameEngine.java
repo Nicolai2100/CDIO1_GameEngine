@@ -1,10 +1,6 @@
 package game;
 
-import game.Dice;
-import game.DiceCup;
 import gui_main.GUI;
-
-import java.util.Scanner;
 
 public class GameEngine {
 
@@ -14,19 +10,15 @@ public class GameEngine {
     public void playGame(){
 
         GUI gui = new GUI();
-        gui.showMessage("Hej hej");
-        String skriv_dit_navn = gui.getUserString("Skriv dit navn");
-        gui.showMessage("Hej " + skriv_dit_navn);
         gui.setDice(3,4);
         //Objects are created
-        Scanner scan = new Scanner(System.in);
         Dice die1 = new Dice();
 
         Dice die2 = new Dice();
         DiceCup diceCup1 = new DiceCup(die1, die2);
-        Player player1 = new Player( 0, diceCup1);
-        Player player2 = new Player( 0, diceCup1);
-        Message message = new Message(player1, player2);
+        Player player1 = new Player( 0, diceCup1,gui);
+        Player player2 = new Player( 0, diceCup1,gui);
+        Message message = new Message(player1, player2, gui);
 
         //Method that gives an introduction to the game. Rules, etc.
         message.startGame();
@@ -36,11 +28,11 @@ public class GameEngine {
 
         //Set player 1 name
         message.startGame1();
-        player1.setName(scan.next());
+        player1.setName(gui.getUserString("Spiller 1 Indtast dit navn!"));
 
         //Set player 2 name
         message.startGame2();
-        player2.setName(scan.next());
+        player2.setName(gui.getUserString("Spiller 2 Indtast dit navn!"));
 
         //Start the main game
         do {

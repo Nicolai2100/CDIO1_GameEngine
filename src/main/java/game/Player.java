@@ -1,9 +1,10 @@
 package game;
 
-import java.util.Scanner;
+import gui_main.GUI;
 
 public class Player {
 
+    private final GUI gui;
     private String name;
     private String playerRollSumString;
 
@@ -21,22 +22,24 @@ public class Player {
     Dice die1 = new Dice();
     Dice die2 = new Dice();
     DiceCup diceCup = new DiceCup(die1, die2);
-    Message message = new Message(ref1, ref2);
-    Scanner scan = new Scanner(System.in);
+    Message message ;
 
     //Construktor
-    public Player(int aPlayerSumSofar , DiceCup diceCup){
+    public Player(int aPlayerSumSofar, DiceCup diceCup, GUI gui){
         playerSumSoFar = aPlayerSumSofar;
+        this.gui = gui;
+       message = new Message(ref1, ref2, gui);
     }
 
     //The method of the game that helps control the game flow.
     public void playerRoll(){
         //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
         //The values of each die is printed and the rest of the method is valuating this result.
-        String key1 = scan.nextLine();
+        gui.showMessage("Det er din tur, " + name);
         diceCup.rollSum();
-        System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
-        System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
+        gui.setDice(diceCup.die1.getFaceValue(),diceCup.die2.getFaceValue());
+//        System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
+//        System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
 
         if (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()){
             playerGotTwoOfEqualValue();
@@ -48,7 +51,8 @@ public class Player {
             lastRollSum = playerRollSum;
             //Prints out the output of the turn.
             playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
-            System.out.println(playerRollSumString);
+            gui.showMessage(playerRollSumString);
+//            System.out.println(playerRollSumString);
         }
     }
    //Valuates what to do if the player rolls two dice of equal value.
@@ -59,14 +63,17 @@ public class Player {
             playerSumSoFar = playerSumSoFar + playerRollSum;
             lastRollSum = playerRollSum;
             playerRollSumString = name + "'s sum is " + playerRollSum + ". Current score: " + playerSumSoFar + "\n";
-            System.out.println(playerRollSumString);
+            gui.showMessage(playerRollSumString);
+//            System.out.println(playerRollSumString);
+
             message.playerWon();}
 
         else if (diceCup.getFaceValueDie1() == 1 && 1 == diceCup.getFaceValueDie2()) {
             playerSumSoFar = 0;
             message.playerExtraTurnButLosePoints();
             playerRollSumString = name + "'s" + ". Current score: " + "0";
-            System.out.println(playerRollSumString);
+            gui.showMessage(playerRollSumString);
+//            System.out.println(playerRollSumString);
             playerRoll();
         }
         else if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){

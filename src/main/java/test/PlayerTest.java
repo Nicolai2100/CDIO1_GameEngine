@@ -3,6 +3,7 @@ package test;
 import game.Dice;
 import game.DiceCup;
 import game.Player;
+import gui_main.GUI;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,8 +12,9 @@ public class PlayerTest {
     Dice die1 = new Dice();
     Dice die2 = new Dice();
     DiceCup diceCup = new DiceCup(die1, die2);
-    Player player1 = new Player(0, diceCup);
-    Player player2 = new Player(0, diceCup);
+    GUI gui = new GUI();
+    Player player1 = new Player(0, diceCup, gui);
+    Player player2 = new Player(0, diceCup, gui);
 
     @Test(timeout = 333) //let the test fail after 333 ms.
     public void playerRoll() {
