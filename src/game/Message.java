@@ -1,3 +1,5 @@
+package game;
+
 public class Message {
 
     String startGameS;
@@ -15,8 +17,8 @@ public class Message {
     }
 
     public void startGame(){
-        startGameS = "Welcome to the Dice Game! \n" +
-                "The Dice Game is a game between two persons. Each player takes turns throwing two dice in a dice cup.\n" +
+        startGameS = "Welcome to the game.Dice Game! \n" +
+                "The game.Dice Game is a game between two persons. Each player takes turns throwing two dice in a dice cup.\n" +
                 "The sum of the dice is added as points to the players total sum.\n"+
                 "The one who gets 40 points and a roll with two dice of equal value wins!\n" +
                 "Special rules: If a player rolls two dice with the value of 1, the player looses all points.\n" +

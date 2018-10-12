@@ -1,3 +1,7 @@
+package test;
+
+import game.Dice;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

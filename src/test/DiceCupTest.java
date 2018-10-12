@@ -1,3 +1,7 @@
+package test;
+
+import game.Dice;
+import game.DiceCup;
 import org.junit.Test;
 
 import java.util.ArrayList;

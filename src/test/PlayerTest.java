@@ -1,3 +1,8 @@
+package test;
+
+import game.Dice;
+import game.DiceCup;
+import game.Player;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

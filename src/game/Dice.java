@@ -1,3 +1,5 @@
+package game;
+
 public class Dice {
 
     private final int MAX = 6;
