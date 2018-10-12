@@ -3,6 +3,7 @@ package test;
 import game.Dice;
 import game.DiceCup;
 import game.Player;
+//JUnit 4
 import org.junit.Test;
 
 import static org.junit.Assert.*;
