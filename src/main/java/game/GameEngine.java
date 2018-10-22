@@ -20,6 +20,8 @@ public class GameEngine {
         Player player1 = new Player( 0, diceCup1);
         Player player2 = new Player( 0, diceCup1);
         Message message = new Message(player1, player2);
+        gui.addPlayer("John Rambo", 1000);
+        GUI.
         gui.setDice(3, 4);
         //Method that gives an introduction to the game. Rules, etc.
         //message.startGame();
