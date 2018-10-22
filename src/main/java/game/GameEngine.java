@@ -56,12 +56,11 @@ public class GameEngine {
 
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
         if (svar.equals("ja"))
-        {
             playGame();
-        }
+
         else
-        {
             gui.showMessage("Farvel");
-        }
+
+
     }
 }
