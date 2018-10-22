@@ -1,7 +1,9 @@
 package game;
 
-public class Message {
+import gui_main.GUI;
 
+public class Message {
+    private GUI gui;
     String startGameS;
     String playersTurnS;
     String playerHasWonS;
@@ -11,12 +13,13 @@ public class Message {
     private Player player1, player2;
     private Player theVictor;
 
-    public Message(Player player1, Player player2){
+    public Message(Player player1, Player player2, GUI gui){
         this.player1 = player1;
         this.player2 = player2;
+        this.gui = gui;
     }
 
-    public String startGame(){
+    public void startGame(){
         startGameS = "Welcome to the game.Dice Game! \n" +
                 "The game.Dice Game is a game between two persons. Each player takes turns throwing two dice in a dice cup.\n" +
                 "The sum of the dice is added as points to the players total sum.\n"+
@@ -28,50 +31,51 @@ public class Message {
                 "\nthe other person rolls. The person with the highest number enters their name first."+
                 "\nIf the players get the same number, the youngest person enters their name first.\n";
 
-        return startGameS;
+        gui.showMessage(startGameS);
     }
 
-    public String startGame1 (){
+    public void startGame1 (){
         startGameS = "\nPlease enter the name of player 1.";
-        return startGameS;
+        gui.showMessage(startGameS);
     }
 
-    public String startGame2(){
+    public void startGame2(){
         startGameS = "Please enter the name of player 2.";
-        return startGameS;
+        gui.showMessage(startGameS);
     }
 
-    public String player1sTurn(){
+    public void player1sTurn(){
         playersTurnS = "It's " + player1.getName() + "'s turn! Press Enter to roll!";
-        return playersTurnS;
+        gui.showMessage(playersTurnS);
     }
 
-    public String player2sTurn(){
+    public void player2sTurn(){
         playersTurnS = "It's " + player2.getName() + "'s turn! Press enter to roll!";
-        return playersTurnS;
+        gui.showMessage(playersTurnS);
     }
-    public String playerWon()
+    public void playerWon()
     {
-        return "You win because you have 40 points and got a double!";
+        gui.showMessage("You win because you have 40 points and got a double!");
     }
 
-    public String playerHasWon(){
+    public void playerHasWon(){
         if (player1.getWon()){
             theVictor = player1;
         } else {
             theVictor = player2;
         }
         playerHasWonS = "Congratulations " + theVictor.getName() + "! You are victorious!";
-        return playerHasWonS;
+        gui.showMessage(playerHasWonS);
+
     }
 
-    public String playerHaveAnExtraTurn(){
+    public void playerHaveAnExtraTurn(){
         playerHaveAnExtraTurnString = "You got two of equals! Roll again!";
-        return playerHaveAnExtraTurnString;
+        gui.showMessage(playerHaveAnExtraTurnString);
     }
 
-    public String playerExtraTurnButLosePoints(){
+    public void playerExtraTurnButLosePoints(){
         playerHaveAnExtraTurnString = "You got two 1's and lose all your points!"+ "\n" + "But you can Roll again!";
-        return playerHaveAnExtraTurnString;
+        gui.showMessage(playerHaveAnExtraTurnString);
     }
 }

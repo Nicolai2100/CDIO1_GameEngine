@@ -17,37 +17,35 @@ public class GameEngine {
         Dice die1 = new Dice();
         Dice die2 = new Dice();
         DiceCup diceCup1 = new DiceCup(die1, die2);
-        Player player1 = new Player( 0, diceCup1);
-        Player player2 = new Player( 0, diceCup1);
-        Message message = new Message(player1, player2);
-        gui.addPlayer("John Rambo", 1000);
-        GUI.
-        gui.setDice(3, 4);
+        Player player1 = new Player( 0, diceCup1, gui);
+        Player player2 = new Player( 0, diceCup1, gui);
+        Message message = new Message(player1, player2, gui);
+
         //Method that gives an introduction to the game. Rules, etc.
-        //message.startGame();
-        gui.showMessage(message.startGame());
+        message.startGame();
+
         //Method that decides who will start
         //player1.decider();
 
         //Set player 1 name
-        gui.showMessage(message.startGame1());
-      //  gui.getUserSelection(player1.setName(scan.next()));
-        //player1.setName(scan.next(gui.getUserString()));
-        player1.setName(gui.getUserString(scan.next()));;
+        message.startGame1();
+        player1.setName(gui.getUserString("1"));
         //Set player 2 name
-        gui.showMessage(message.startGame2());
-        player2.setName(scan.next());
+        message.startGame2();
+        player2.setName(gui.getUserString("2"));
 
         //Start the main game
         do {
-            gui.showMessage(message.player1sTurn());
+            message.player1sTurn();
             player1.playerRoll();
+            //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
 
             if (player1.getWon()){
                 break;
             }
-            gui.showMessage(message.player2sTurn());
+            message.player2sTurn();
             player2.playerRoll();
+            //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
 
             if (player2.getWon()){
                 break;
@@ -57,6 +55,6 @@ public class GameEngine {
         while(!player1.getWon() || !player2.getWon());
 
         //Give a message about who won the game
-        gui.showMessage(message.playerHasWon());
+        message.playerHasWon();
     }
 }

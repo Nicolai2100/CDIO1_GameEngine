@@ -1,9 +1,11 @@
 package game;
 
+import gui_main.GUI;
+
 import java.util.Scanner;
 
 public class Player {
-
+    private GUI gui;
     private String name;
     private String playerRollSumString;
 
@@ -15,28 +17,28 @@ public class Player {
 
     private static Player ref1;
     private static Player ref2;
-
     //Objects
 
     Dice die1 = new Dice();
     Dice die2 = new Dice();
     DiceCup diceCup = new DiceCup(die1, die2);
-    Message message = new Message(ref1, ref2);
+    Message message;
     Scanner scan = new Scanner(System.in);
 
     //Construktor
-    public Player(int aPlayerSumSofar , DiceCup diceCup){
+    public Player(int aPlayerSumSofar , DiceCup diceCup, GUI gui){
         playerSumSoFar = aPlayerSumSofar;
+        this.gui = gui;
+        message = new Message(ref1, ref2, gui);
     }
 
     //The method of the game that helps control the game flow.
     public void playerRoll(){
         //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
         //The values of each die is printed and the rest of the method is valuating this result.
-        String key1 = scan.nextLine();
         diceCup.rollSum();
-        System.out.println("Die 1 rolls: " + diceCup.die1.getFaceValue());
-        System.out.println("Die 2 rolls: " + diceCup.die2.getFaceValue());
+        gui.setDice(diceCup.die1.getFaceValue(), diceCup.die2.getFaceValue());
+        gui.showMessage(name +"'s nuværende score: "+(playerSumSoFar+diceCup.getSum()));
 
         if (diceCup.die1.getFaceValue() == diceCup.die2.getFaceValue()){
             playerGotTwoOfEqualValue();
