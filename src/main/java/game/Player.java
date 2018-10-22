@@ -2,8 +2,6 @@ package game;
 
 import gui_main.GUI;
 
-import java.util.Scanner;
-
 public class Player {
     private GUI gui;
     private String name;
@@ -17,17 +15,15 @@ public class Player {
 
     private static Player ref1;
     private static Player ref2;
-    //Objects
 
-    Dice die1 = new Dice();
-    Dice die2 = new Dice();
-    DiceCup diceCup = new DiceCup(die1, die2);
-    Message message;
-    Scanner scan = new Scanner(System.in);
+    //Objects
+    private DiceCup diceCup;
+    private Message message;
 
     //Construktor
     public Player(int aPlayerSumSofar , DiceCup diceCup, GUI gui){
         playerSumSoFar = aPlayerSumSofar;
+        this.diceCup = diceCup;
         this.gui = gui;
         message = new Message(ref1, ref2, gui);
     }
@@ -99,24 +95,6 @@ public class Player {
         else{
             message.playerHaveAnExtraTurn();
             playerRoll();
-        }
-    }
-    // Decides who has the first roll of the game
-    public void decider(){
-        System.out.println("To find out who begins\nThe youngest person will roll the dice:");
-        die1.roll();
-        System.out.println("The youngest person got " + die1.getFaceValue()+ ".\nThen the other person:");
-        die2.roll();
-        System.out.println("The other person got " + die2.getFaceValue()+".");
-
-        if (die1.getFaceValue() > die2.getFaceValue()) {
-            System.out.println("The youngest person will enter their name first.");
-        }
-        else if (die1.getFaceValue() < die2.getFaceValue()) {
-            System.out.println("The other person will enter their name first.");
-        }
-        else {
-            System.out.println("You got the same value, therefore the youngest person must enter their name first");
         }
     }
 

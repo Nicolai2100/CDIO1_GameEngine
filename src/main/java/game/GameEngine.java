@@ -13,7 +13,6 @@ public class GameEngine {
         GUI gui = new GUI();
 
         //Objects are created
-        Scanner scan = new Scanner(System.in);
         Dice die1 = new Dice();
         Dice die2 = new Dice();
         DiceCup diceCup1 = new DiceCup(die1, die2);
@@ -24,15 +23,12 @@ public class GameEngine {
         //Method that gives an introduction to the game. Rules, etc.
         message.startGame();
 
-        //Method that decides who will start
-        //player1.decider();
-
         //Set player 1 name
         message.startGame1();
-        player1.setName(gui.getUserString("1"));
+        player1.setName(gui.getUserString("Indtast player 1's navn: "));
         //Set player 2 name
         message.startGame2();
-        player2.setName(gui.getUserString("2"));
+        player2.setName(gui.getUserString("Indtast player 2's navn: "));
 
         //Start the main game
         do {
@@ -56,5 +52,16 @@ public class GameEngine {
 
         //Give a message about who won the game
         message.playerHasWon();
+
+
+        String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
+        if (svar.equals("ja"))
+        {
+            playGame();
+        }
+        else
+        {
+            gui.showMessage("Farvel");
+        }
     }
 }
