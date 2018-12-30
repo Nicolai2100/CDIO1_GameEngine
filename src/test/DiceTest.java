@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static org.junit.Assert.*;
-
+//test
 public class DiceTest {
     Dice die = new Dice();
 
